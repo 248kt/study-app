@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Study — Minimal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <header class="container">
+    <div class="brand">Study<span class="dot">.</span></div>
+    <div class="actions">
+      <button id="themeToggle" aria-label="Toggle theme" class="icon-btn" title="Toggle theme">
+        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
+          <path d="M12 4V2m0 20v-2M4.93 4.93 3.52 3.52m16.96 16.96-1.41-1.41M4 12H2m20 0h-2M4.93 19.07l-1.41 1.41M20.48 3.52l-1.41 1.41" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3c0 .34.02.67.06 1A7 7 0 0 0 21 12c0 .27-.01.53-.03.79Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <!-- TIMER -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Timer</h2>
+        <div class="mode-tabs" role="tablist" aria-label="Timer mode">
+          <button class="tab active" data-mode="work" role="tab" aria-selected="true">Work</button>
+          <button class="tab" data-mode="short" role="tab" aria-selected="false">Short</button>
+          <button class="tab" data-mode="long" role="tab" aria-selected="false">Long</button>
+        </div>
+      </div>
+
+      <div class="time-display" aria-live="polite"><span id="time">25:00</span></div>
+
+      <div class="controls">
+        <button id="startPause" class="btn primary">Start</button>
+        <button id="reset" class="btn">Reset</button>
+      </div>
+
+      <details class="settings">
+        <summary>Settings</summary>
+        <div class="settings-grid">
+          <label>Work (min)
+            <input type="number" id="durWork" min="1" max="180" value="25">
+          </label>
+          <label>Short Break (min)
+            <input type="number" id="durShort" min="1" max="60" value="5">
+          </label>
+          <label>Long Break (min)
+            <input type="number" id="durLong" min="1" max="90" value="15">
+          </label>
+          <label class="check">
+            <input type="checkbox" id="tick"> Ticking sound
+          </label>
+          <label class="check">
+            <input type="checkbox" id="autoNext"> Auto-continue
+          </label>
+          <label>Volume
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.6">
+          </label>
+          <button id="saveSettings" class="btn small">Save</button>
+        </div>
+      </details>
+      <div class="subtle" id="cycleInfo">Cycle: <span id="cycleCount">0</span></div>
+    </section>
+
+    <!-- TASKS -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Tasks</h2>
+      </div>
+
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <input id="taskInput" type="text" placeholder="Add a task and press Enter" aria-label="Task name" />
+        <button class="btn" aria-label="Add task">Add</button>
+      </form>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+      <div class="task-actions">
+        <span id="taskStats" class="subtle">0 tasks</span>
+        <div class="spacer"></div>
+        <button id="clearDone" class="btn small">Clear completed</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <span class="subtle">Built with love • Local, private, and offline-friendly</span>
+  </footer>
+
+  <script src="tone.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
