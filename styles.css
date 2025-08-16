@@ -35,11 +35,15 @@ body {
   transition: background .25s ease, color .25s ease;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container { max-width: 980px; margin: 0 auto; padding: 20px; }
 header.container {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
-.brand { font-weight: 800; letter-spacing: .2px; font-size: 1.25rem; }
+.brand { font-weight: 800; letter-spacing: .2px; font-size: 1.25rem; cursor: pointer; }
 .brand .dot { color: var(--primary); }
 
 .actions { display: flex; gap: 8px; align-items: center; }
