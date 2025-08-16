@@ -35,10 +35,6 @@ body {
   transition: background .25s ease, color .25s ease;
 }
 
-a {
-  text-decoration: none;
-}
-
 .container { max-width: 980px; margin: 0 auto; padding: 20px; }
 header.container {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
