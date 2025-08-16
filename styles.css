@@ -43,7 +43,7 @@ a {
 header.container {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
-.brand { font-weight: 800; letter-spacing: .2px; font-size: 1.25rem; cursor: pointer; }
+.brand { font-weight: 800; letter-spacing: .2px; font-size: 1.25rem; }
 .brand .dot { color: var(--primary); }
 
 .actions { display: flex; gap: 8px; align-items: center; }
